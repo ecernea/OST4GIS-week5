@@ -171,5 +171,37 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
 // the function passed to `ready` until the HTML document is fully loaded and all scripts have
 // been interpreted. It is, therefore, an example of asynchronous behavior.
 $(document).ready(function() {
-  // Do your stuff here
+  $("#text-label1").text("Search by Title");
+  $("#text-label2").text("Search by Name");
+  $("#text-label3").text("Search by Address");
+  $("#number-label1").text("Search by Zipcode");
+  $("#number-label2").text("Latitude");
+  $("#number-label3").text("Longitude");
+  $("#checkbox-label1").text("Check if tax compliant");
+  $("#checkbox-label2").text("Check if rental property");
+  $("#color-label").text("Choose color of marker");
+  $("#text-input1").val("Philadelphia Land Trust").prop('disabled', false);
+  $("#text-input2").val("Evan Cernea").prop('disabled', false);
+  $("#text-input3").val("2106 Walnut Street").prop('disabled', false);
+  $("#numeric-input1").val("19103").prop('disabled', false);
+  $("#numeric-input2").val("39.950646").prop('disabled', false);
+  $("#numeric-input3").val("-75.176037").prop('disabled', false);
+  $("#cbox-input1").prop('disabled', false).prop('checked', true);
+  $("#cbox-input2").prop('disabled', false).prop('checked', true);
+  $("#color-input").val('#ff00ff');
+  var title = $("#text-input1").val();
+  var name = $("#text-input2").val();
+  var address = $("#text-input3").val();
+  var zipcode = $("#numeric-input1").val();
+  var lat = $("#numeric-input2").val();
+  var lon = $("#numeric-input3").val();
+  var color = $("#color-input").val();
+  var array = {'title': title, 'name': name, 'address': address, 'zipcode': zipcode, 'lat': lat, 'lon': lon, 'color':color};
+  var circleMarker = L.circleMarker([lat, lon], {
+      color: 'red',
+      fillColor: color,
+      fillOpacity: 0.5,
+      radius: 25
+  }).bindPopup(title, name, address, zipcode);
+  $("button").click(function() {circleMarker.addTo(map);});
 });

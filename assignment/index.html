@@ -11,7 +11,24 @@
     <div class="sidebar">
       <!-- =====================
       Add elements in this space
+     1. Text input field, which will represent the URL of your dataset
+     2. Text input field, which will represent the latitude key in your data
+     3. Text input field, which will represent the longitude key in your data
+     4. Button, which will run your script
       ====================== -->
+      <br>
+      <label id="text-label1" for="text-input1">The URL of your dataset</label>
+      <input id="text-input1" class="input-text" type="text" placeholder="URL" value="some URL">
+      <br>
+      <br>
+      <label id="text-label2" for="text-input2">The latitude key in your data</label>
+      <input id="text-input2" class="input-text" type="text" placeholder="latitude" value="CapitalLatitude">
+      <br>
+      <br>
+      <label id="text-label3" for="text-input3">The longitude key in your data</label>
+      <input id="text-input3" class="input-text" type="text" placeholder="longitude" value="CapitalLongitude">
+      <br>
+      <button id="button">Run</button>
     </div>
     <!-- Map -->
     <div id="map" class="map"></div>
